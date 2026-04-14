@@ -22,7 +22,7 @@ import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 // import { CurrentUserInterceptor } from './interceptors/current-user.interceptor';
 import { User } from './user.entity';
-import { AuthGard } from '../guards/auth.gard';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -38,7 +38,7 @@ export class UsersController {
   //     return this.userService.findOne(session.userId);
   //   }
 
-  @UseGuards(AuthGard)
+  @UseGuards(AuthGuard)
   @Get('/whoami')
   whoAmI(@CurrentUser() user: User) {
     return user;

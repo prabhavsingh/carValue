@@ -16,7 +16,10 @@ export class ReportDto {
   @Expose()
   lat!: number;
   @Expose()
-  milage!: number;
+  mileage!: number;
+
+  @Expose()
+  approved!: boolean;
 
   @Transform(({ obj }) => obj.user.id)
   @Expose()
